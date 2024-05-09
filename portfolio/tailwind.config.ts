@@ -8,10 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        header: "#E2E2E2",
+        "about-text": "#D2DED4",
+        "about-text2": "#DAE08A",
+      },
       backgroundImage: {
+        "dot-mask":
+          "radial-gradient(rgba(0, 0, 0, 0.25) 30%, rgba(0, 0, 0, 0.15) 31%)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      backgroundSize: {
+        "dot-mask": "2px 2px",
       },
     },
   },
