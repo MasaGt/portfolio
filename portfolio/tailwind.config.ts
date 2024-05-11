@@ -11,7 +11,6 @@ const config: Config = {
       colors: {
         header: "#E2E2E2",
         "about-text": "#D2DED4",
-        "about-text2": "#DAE08A",
       },
       backgroundImage: {
         "dot-mask":
@@ -22,6 +21,9 @@ const config: Config = {
       },
       backgroundSize: {
         "dot-mask": "2px 2px",
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },
