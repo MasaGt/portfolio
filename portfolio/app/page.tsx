@@ -1,7 +1,7 @@
-import Image from "next/image";
 import About from "./_components/about/Body";
 import Navi from "./_components/common/Navi";
 import Contact from "./_components/contact/Body";
+import Blog from "./_components/blogs/Body";
 
 export default function Home() {
   return (
@@ -20,10 +20,12 @@ export default function Home() {
         <About />
       </section> */}
       <section className="works"></section>
-      <section className="blogs"></section>
-      <section className="contact">
-        <Contact />
+      <section>
+        <Blog />
       </section>
+      {/* <section>
+        <Contact />
+      </section> */}
     </main>
   );
 }

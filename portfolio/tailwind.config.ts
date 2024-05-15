@@ -25,6 +25,13 @@ const config: Config = {
       backdropBlur: {
         xs: "2px",
       },
+      gridTemplateColumns: {
+        "blog-grid": "repeat(2, 45%)",
+      },
+      width: {
+        "100": "25rem",
+        "125": "31.25rem",
+      },
     },
   },
   plugins: [],

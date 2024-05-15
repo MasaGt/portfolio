@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer {
+@layer components {
   .container {
     @apply relative;
   }
@@ -48,17 +48,37 @@
     @apply text-xl lg:text-2xl;
   }
 
+  /* blogs section */
+  .blogs {
+    @apply flex justify-center items-center h-screen pt-40 pb-10;
+  }
+
+  .blogs_grid {
+    @apply grid grid-cols-blog-grid gap-20 h-full;
+  }
+
+  .card {
+    @apply flex flex-col justify-center w-100 backdrop-blur-xs;
+  }
+
   /* contact section */
   .contact {
-    @apply flex justify-center items-center h-screen w-screen;
+    @apply flex justify-center items-center h-screen w-screen md:p-0 p-2.5;
   }
 
   .contact_form {
-    @apply p-4 flex flex-col gap-y-8;
+    @apply flex flex-col gap-y-12 md:p-4 px-4 py-6 w-4/5 h-min;
   }
 
   .form_unit {
-    @apply flex md:flex-row flex-col md:gap-x-40;
+    @apply flex md:flex-row md:justify-between flex-col md:gap-y-0 gap-y-12 w-full;
+  }
+  .form_unit div {
+    @apply md:basis-2/5 flex space-x-[5%];
+  }
+
+  .form_unit div input {
+    @apply bg-transparent border-b grow w-full;
   }
 
   .form_button {
