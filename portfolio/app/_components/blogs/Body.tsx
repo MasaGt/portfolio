@@ -1,17 +1,19 @@
 import Card from "./Card";
 
 const Body = () => {
+  const content =
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s";
   let blogs = [
-    { src: "blog_img.png", title: "Blog1", content: "This is blog1" },
-    { src: "blog_img.png", title: "Blog2", content: "This is blog2" },
-    { src: "blog_img.png", title: "Blog3", content: "This is blog3" },
-    { src: "blog_img.png", title: "Blog4", content: "This is blog4" },
+    { title: "Blog1", content, date: "2024/05/17" },
+    { title: "Blog2", content, date: "2024/05/16" },
+    { title: "Blog3", content, date: "2024/05/15" },
+    { title: "Blog4", content, date: "2024/05/14" },
   ];
   return (
     <div className="blogs">
       <div className="blogs_grid">
-        {blogs.map((data) => (
-          <Card children={data} />
+        {blogs.map((data, i) => (
+          <Card key={i} children={data} />
         ))}
       </div>
     </div>

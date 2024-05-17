@@ -10,7 +10,7 @@ export default function Home() {
       <div className="video-container">
         <video
           className="video"
-          src="/bg_contact.mp4"
+          src="/bg_blogs.mp4"
           autoPlay
           loop
           muted

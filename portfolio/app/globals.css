@@ -16,6 +16,7 @@
     @apply object-cover h-full min-h-full w-full;
   }
 
+  /* about section */
   .about {
     @apply lg:flex lg:justify-between h-screen w-screen text-about-text;
   }
@@ -50,15 +51,31 @@
 
   /* blogs section */
   .blogs {
-    @apply flex justify-center items-center h-screen pt-40 pb-10;
+    @apply flex justify-center h-screen md:pt-40 pt-30 pb-10;
   }
 
   .blogs_grid {
-    @apply grid grid-cols-blog-grid gap-20 h-full;
+    @apply grid grid-cols-blog-grid gap-x-6 gap-y-4 h-fit md:w-[80%] w-full;
   }
 
   .card {
-    @apply flex flex-col justify-center w-100 backdrop-blur-xs;
+    @apply flex flex-col gap-y-2 h-fit w-full backdrop-blur bg-white/5 px-6 py-4;
+  }
+
+  .card_title {
+    @apply w-full md:text-2xl text-4xl;
+  }
+
+  .card_content {
+    @apply w-full text-base line-clamp-3;
+  }
+
+  .card_date {
+    @apply text-xs;
+  }
+
+  .card_btn {
+    @apply underline underline-offset-4 cursor-pointer;
   }
 
   /* contact section */

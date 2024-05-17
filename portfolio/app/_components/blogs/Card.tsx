@@ -1,14 +1,14 @@
 const Card = ({
   children,
 }: {
-  children: { src: string; title: string; content: string };
+  children: { title: string; content: string; date: string };
 }) => {
   return (
     <div className="card">
-      <img src={children.src} alt={children.title} />
-      <div className="blog_title">{children.title}</div>
-      <div className="blog_content">{children.content}</div>
-      <div className="blog_btn">Read</div>
+      <div className="card_title">{children.title}</div>
+      <div className="card_content">{children.content}</div>
+      <div className="card_date">{children.date}</div>
+      <div className="card_btn">read more</div>
     </div>
   );
 };
