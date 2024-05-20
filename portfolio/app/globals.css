@@ -159,10 +159,6 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-.swiper-pagination {
-  --swiper-pagination-bottom: 0;
-  --swiper-pagination-bullet-inactive-color: "#fff";
-}
 
 @layer utilities {
   .text-balance {
