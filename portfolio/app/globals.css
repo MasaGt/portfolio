@@ -49,25 +49,58 @@
     @apply text-xl lg:text-2xl;
   }
 
+  /* works section */
+  .works {
+    @apply flex flex-col h-screen;
+  }
+
+  .works_blur {
+    @apply backdrop-blur;
+  }
+
+  .works_title {
+    @apply basis-1/5;
+  }
+
+  .works_main,
+  .works_desc {
+    @apply basis-2/5;
+  }
+  .works_main {
+    @apply py-4;
+  }
+
+  .workcard {
+    @apply flex flex-col justify-center items-center lg:cursor-pointer w-fit mx-auto h-fit;
+  }
+
+  .workcard_title {
+    @apply inline-block;
+  }
+
+  .swiper_slide {
+    @apply flex justify-center items-center w-fit;
+  }
+
   /* blogs section */
   .blogs {
     @apply flex justify-center h-screen md:pt-40 pt-30 pb-10;
   }
 
   .blogs_grid {
-    @apply grid grid-cols-blog-grid gap-x-6 gap-y-4 h-fit md:w-[80%] w-full;
+    @apply grid md:grid-cols-pc grid-cols-mb gap-x-6 gap-y-4 h-fit md:w-4/5 w-11/12;
   }
 
   .card {
-    @apply flex flex-col gap-y-2 h-fit w-full backdrop-blur bg-white/5 px-6 py-4;
+    @apply flex flex-col gap-y-2 h-fit w-full backdrop-blur md:hover:backdrop-blur-xl bg-white/5 px-6 py-4;
   }
 
   .card_title {
-    @apply w-full md:text-2xl text-4xl;
+    @apply w-full text-2xl;
   }
 
   .card_content {
-    @apply w-full text-base line-clamp-3;
+    @apply w-full text-base line-clamp-4;
   }
 
   .card_date {
@@ -75,7 +108,7 @@
   }
 
   .card_btn {
-    @apply underline underline-offset-4 cursor-pointer;
+    @apply underline w-fit underline-offset-4 cursor-pointer;
   }
 
   /* contact section */
@@ -125,6 +158,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+.swiper-pagination {
+  --swiper-pagination-bottom: 0;
+  --swiper-pagination-bullet-inactive-color: "#fff";
 }
 
 @layer utilities {

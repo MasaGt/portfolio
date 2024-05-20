@@ -1,7 +1,8 @@
-import About from "./_components/about/Body";
 import Navi from "./_components/common/Navi";
+import About from "./_components/about/Body";
+import Works from "./_components/works/Body";
+import Blogs from "./_components/blogs/Body";
 import Contact from "./_components/contact/Body";
-import Blog from "./_components/blogs/Body";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
       <div className="video-container">
         <video
           className="video"
-          src="/bg_blogs.mp4"
+          src="/bg_works.mp4"
           autoPlay
           loop
           muted
@@ -19,10 +20,12 @@ export default function Home() {
       {/* <section>
         <About />
       </section> */}
-      <section className="works"></section>
       <section>
-        <Blog />
+        <Works />
       </section>
+      {/* <section>
+        <Blogs />
+      </section> */}
       {/* <section>
         <Contact />
       </section> */}

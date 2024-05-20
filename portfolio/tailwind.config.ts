@@ -26,11 +26,13 @@ const config: Config = {
         xs: "2px",
       },
       gridTemplateColumns: {
-        "blog-grid": "repeat(auto-fit, minmax(20rem, 1fr))",
+        pc: "repeat(auto-fit, minmax(15rem, 1fr))",
+        mb: "repeat(auto-fit, minmax(10rem, 1fr))",
       },
       width: {
         "100": "25rem",
         "125": "31.25rem",
+        "9/10": "90%",
       },
       padding: {
         "30": "7.5rem",
