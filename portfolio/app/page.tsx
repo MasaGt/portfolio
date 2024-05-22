@@ -3,6 +3,7 @@ import About from "./_components/about/Body";
 import Works from "./_components/works/Body";
 import Blogs from "./_components/blogs/Body";
 import Contact from "./_components/contact/Body";
+import Recoil from "./_components/common/Recoil";
 
 export default function Home() {
   return (
@@ -21,7 +22,9 @@ export default function Home() {
         <About />
       </section> */}
       <section>
-        <Works />
+        <Recoil>
+          <Works />
+        </Recoil>
       </section>
       {/* <section>
         <Blogs />

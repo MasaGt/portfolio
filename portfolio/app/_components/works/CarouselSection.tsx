@@ -1,16 +1,16 @@
 "use client";
 import Card from "./Card";
+import { works_data } from "../../../works";
+import { Work } from "@/app/_types/types";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
-const CarouselSection = ({
-  children,
-}: {
-  children: { img: string; title: string; description: string }[];
-}) => {
+const CarouselSection = () => {
+  const works: Work[] = works_data;
+  // if work card is selected. show it's images instead works.
   return (
     <div>
       <Swiper
@@ -22,8 +22,12 @@ const CarouselSection = ({
         navigation={true}
         mousewheel={true}
       >
-        {children.map((data, i) => (
-          <SwiperSlide className="swiper_slide" key={i}>
+        {works.map((data, i) => (
+          <SwiperSlide
+            className="swiper_slide"
+            key={i}
+            // onClick={() => console.log("margin clicked")} todo: set isWorkSelected false when outside the work card is clicked
+          >
             <Card key={i} children={data} />
           </SwiperSlide>
         ))}

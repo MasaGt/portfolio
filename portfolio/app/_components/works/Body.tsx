@@ -1,37 +1,33 @@
 "use client";
 import CarouselSection from "./CarouselSection";
+import { useRecoilValue } from "recoil";
+import { selectedWork, isWorkSelected } from "@/app/_recoil/recoil";
+import clsx from "clsx";
 
 const Body = () => {
-  let works = [
-    {
-      img: "blog_img.png",
-      title: "portofolio v2",
-      description: "My new portofolio. Using Next.js as a framework",
-    },
-    {
-      img: "blog_img.png",
-      title: "Vineyard Climate Monitoring",
-      description:
-        "An android app that monitors weather data and forecasts temperature in 1 hour using AI model.",
-    },
-    {
-      img: "blog_img.png",
-      title: "Flutter Game App",
-      description: "A mobile app. Move a falling kiwi bird to dodges objects.",
-    },
-    {
-      img: "blog_img.png",
-      title: "portofolio v1",
-      description: "My first portfolio using HTML5, css3, and JavaScript.",
-    },
-  ];
+  const work = useRecoilValue(selectedWork);
+  const isSelected = useRecoilValue(isWorkSelected);
+
   return (
     <div className="works">
-      <div className="works_blur works_title"></div>
+      <div className="works_blur works_title text-white">{work.title}</div>
       <div className="works_main">
-        <CarouselSection children={works} />
+        <CarouselSection />
       </div>
-      <div className="works_blur works_desc"></div>
+      <div
+        className={clsx("works_blur works_desc text-white", {
+          invisible: !isSelected,
+          visible: isSelected,
+        })}
+      >
+        <div>{work.description}</div>
+        <div>
+          <div className="w-fit">Skills</div>
+          {work.skills.map((skill, i) => (
+            <div key={i}>{skill}</div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

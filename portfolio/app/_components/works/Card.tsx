@@ -1,14 +1,20 @@
 import Image from "next/image";
+import { Work } from "@/app/_types/types";
+import { useSetRecoilState } from "recoil";
+import { selectedWork, isWorkSelected } from "@/app/_recoil/recoil";
 
-const Card = ({
-  children,
-}: {
-  children: { img: string; title: string; description: string };
-}) => {
+const Card = ({ children }: { children: Work }) => {
+  const setWork = useSetRecoilState(selectedWork);
+  const setIsSelected = useSetRecoilState(isWorkSelected);
+  const selectWork = () => {
+    setWork(children);
+    setIsSelected(true);
+  };
+
   return (
-    <div className="workcard">
+    <div className="workcard" onClick={selectWork}>
       <Image
-        src={`/${children.img}`}
+        src={`/${children.thumbnail}`}
         alt={`${children.title}'s image`}
         width={300}
         height={300}
