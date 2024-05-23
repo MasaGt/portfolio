@@ -23,11 +23,7 @@ const CarouselSection = () => {
         mousewheel={true}
       >
         {works.map((data, i) => (
-          <SwiperSlide
-            className="swiper_slide"
-            key={i}
-            // onClick={() => console.log("margin clicked")} todo: set isWorkSelected false when outside the work card is clicked
-          >
+          <SwiperSlide className="swiper_slide" key={i}>
             <Card key={i} children={data} />
           </SwiperSlide>
         ))}
