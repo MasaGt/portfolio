@@ -32,6 +32,7 @@ const config: Config = {
       width: {
         "100": "25rem",
         "125": "31.25rem",
+        "178": "712",
         "9/10": "90%",
       },
       padding: {

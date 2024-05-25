@@ -10,7 +10,7 @@ export const works_data: Work[] = [
     title: "portofolio v2",
     description: "My new portofolio. Using Next.js as a framework",
     skills: ["Type Script", "Next.js", "Swiper", "Recoil", "clsx"],
-    imgs: [""],
+    imgs: ["blog_img.png", "blog_img.png", "blog_img.png", "blog_img.png"],
   },
   {
     thumbnail: "blog_img.png",
@@ -18,7 +18,7 @@ export const works_data: Work[] = [
     description:
       "An android app that monitors weather data and forecasts temperature in 1 hour using AI model.",
     skills: ["Java Script", "React", "React Native", "Team Leading"],
-    imgs: [""],
+    imgs: ["blog_img.png", "blog_img.png", "blog_img.png"],
   },
   {
     thumbnail: "flutter_game_app_thumbnail.png",

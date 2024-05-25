@@ -12,13 +12,19 @@ const Card = ({ children }: { children: Work }) => {
   };
 
   return (
-    <div className="workcard" onClick={selectWork}>
-      <Image
-        src={`/${children.thumbnail}`}
-        alt={`${children.title}'s image`}
-        width={300}
-        height={300}
-      />
+    <div
+      className="workcard relative min-w-100 aspect-square"
+      onClick={selectWork}
+    >
+      <div className="relative h-full min-w-100 w-full">
+        <Image
+          src={`/${children.thumbnail}`}
+          alt={`${children.title}'s image`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          className="object-cover"
+        />
+      </div>
       <div className="workcard_title text-white">{children.title}</div>
     </div>
   );
