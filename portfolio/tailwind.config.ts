@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -37,6 +38,20 @@ const config: Config = {
       },
       padding: {
         "30": "7.5rem",
+      },
+      keyframes: {
+        apperFromLeft: {
+          "0%": { opacity: "0", transform: "translateX(-100%)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        disappearToLeft: {
+          "0%": { opacity: "1", transform: "translateX(0)" },
+          "100%": { opacity: "0", transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        appear: "apperFromLeft 0.5s forwards",
+        disappear: "disappearToLeft 0.5s forwards",
       },
     },
   },

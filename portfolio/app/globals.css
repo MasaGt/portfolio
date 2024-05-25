@@ -66,6 +66,19 @@
   .works_desc {
     @apply basis-2/5;
   }
+
+  .works_info {
+    @apply relative backdrop-blur overflow-hidden text-white;
+  }
+
+  .works_info-hidden {
+    @apply animate-disappear;
+  }
+
+  .works_info-shown {
+    @apply animate-appear;
+  }
+
   .works_main {
     @apply py-4;
   }

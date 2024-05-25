@@ -16,11 +16,11 @@ const Body = () => {
 
   return (
     <div className="works">
-      <div className="works_blur works_title text-white pt-20 px-6">
+      <div className="works_title works_info pt-20 px-6">
         <div
           className={clsx("flex justify-between", {
-            visible: isWorkSelected,
-            invisible: !isWorkSelected,
+            "works_info-shown": isWorkSelected,
+            "works_info-hidden": !isWorkSelected,
           })}
         >
           <div>{selectedWork.title}</div>
@@ -47,11 +47,11 @@ const Body = () => {
           <ImageCarousel />
         </div>
       </div>
-      <div className="works_blur works_desc text-white px-6 py-10">
+      <div className="works_desc works_info px-6 py-10">
         <div
           className={clsx("flex gap-y-10 flex-col", {
-            visible: isWorkSelected,
-            invisible: !isWorkSelected,
+            "works_info-shown": isWorkSelected,
+            "works_info-hidden": !isWorkSelected,
           })}
         >
           <div>{selectedWork.description}</div>
