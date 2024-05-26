@@ -51,7 +51,7 @@ const config: Config = {
       },
       animation: {
         appear: "apperFromLeft 0.5s forwards",
-        disappear: "disappearToLeft 0.5s forwards",
+        disappear: "disappearToLeft 1s forwards",
       },
     },
   },

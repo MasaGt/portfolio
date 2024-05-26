@@ -24,7 +24,13 @@ const Body = () => {
           })}
         >
           <div>{selectedWork.title}</div>
-          <div onClick={onClick} className="cursor-pointer">
+          <div
+            onClick={onClick}
+            className={clsx("cursor-pointer", {
+              visible: isWorkSelected,
+              invisible: !isWorkSelected,
+            })}
+          >
             Close
           </div>
         </div>
@@ -56,7 +62,14 @@ const Body = () => {
         >
           <div>{selectedWork.description}</div>
           <div>
-            <div className="w-fit">Skills</div>
+            <div
+              className={clsx("w-fit", {
+                visible: isWorkSelected,
+                invisible: !isWorkSelected,
+              })}
+            >
+              Skills
+            </div>
             <div className="flex gap-x-3">
               {selectedWork.skills.map((skill, i) => (
                 <div key={i} className="text-center border text-xs p-1">
