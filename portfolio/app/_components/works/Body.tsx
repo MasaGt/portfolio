@@ -16,17 +16,17 @@ const Body = () => {
 
   return (
     <div className="works">
-      <div className="works_title works_info pt-20 px-6">
+      <div className="works_info basis-1/5 md:pt-20 pt-16 px-6 flex items-end">
         <div
-          className={clsx("flex justify-between", {
+          className={clsx("flex justify-between items-center w-full", {
             "works_info-shown": isWorkSelected,
             "works_info-hidden": !isWorkSelected,
           })}
         >
-          <div>{selectedWork.title}</div>
+          <div className="text-heading">{selectedWork.title}</div>
           <div
             onClick={onClick}
-            className={clsx("cursor-pointer", {
+            className={clsx("cursor-pointer text-small", {
               visible: isWorkSelected,
               invisible: !isWorkSelected,
             })}
@@ -38,7 +38,7 @@ const Body = () => {
       <div className="works_main">
         <div
           className={clsx("h-full", {
-            block: !isWorkSelected,
+            visible: !isWorkSelected,
             hidden: isWorkSelected,
           })}
         >
@@ -46,16 +46,16 @@ const Body = () => {
         </div>
         <div
           className={clsx("h-full", {
-            block: isWorkSelected,
+            visible: isWorkSelected,
             hidden: !isWorkSelected,
           })}
         >
           <ImageCarousel />
         </div>
       </div>
-      <div className="works_desc works_info px-6 py-10">
+      <div className="works_desc works_info px-6 pt-10 pb-4">
         <div
-          className={clsx("flex gap-y-10 flex-col", {
+          className={clsx("flex gap-y-10 flex-col text-normal", {
             "works_info-shown": isWorkSelected,
             "works_info-hidden": !isWorkSelected,
           })}
@@ -70,9 +70,9 @@ const Body = () => {
             >
               Skills
             </div>
-            <div className="flex gap-x-3">
+            <div className="flex gap-3 flex-wrap">
               {selectedWork.skills.map((skill, i) => (
-                <div key={i} className="text-center border text-xs p-1">
+                <div key={i} className="text-center border p-1 text-small">
                   <span
                     key={i}
                     className="inline-block relative top-1/2  translate-y-[-50%]"

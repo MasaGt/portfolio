@@ -12,11 +12,8 @@ const Card = ({ children }: { children: Work }) => {
   };
 
   return (
-    <div
-      className="workcard relative min-w-100 aspect-square"
-      onClick={selectWork}
-    >
-      <div className="relative h-full min-w-100 w-full">
+    <div className="workcard" onClick={selectWork}>
+      <div className="relative h-full w-full">
         <Image
           src={`/${children.thumbnail}`}
           alt={`${children.title}'s image`}

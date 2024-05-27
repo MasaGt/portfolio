@@ -13,27 +13,12 @@ export const WorkCarousel = () => {
     <div className="h-full">
       <Swiper
         watchOverflow={true}
-        className="h-full "
+        className="h-full"
         modules={[Mousewheel, Navigation]}
         spaceBetween={30}
-        // slidesPerView={1}
         slidesPerView={"auto"}
         navigation={true}
         mousewheel={true}
-        // breakpoints={{
-        //   640: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 30,
-        //   },
-        //   768: {
-        //     slidesPerView: 2,
-        //     spaceBetween: 30,
-        //   },
-        //   1024: {
-        //     slidesPerView: 3,
-        //     spaceBetween: 30,
-        //   },
-        // }}
       >
         {works.map((data, i) => (
           <SwiperSlide
