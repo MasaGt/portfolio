@@ -1,21 +1,15 @@
 import Image from "next/image";
 import { Work } from "@/app/_types/types";
 import { useSetRecoilState } from "recoil";
-import {
-  selectedWorkAtom,
-  isWorkSelectedAtom,
-  isInitDisplayAtom,
-} from "@/app/_recoil/recoil";
+import { selectedWorkAtom, isWorkSelectedAtom } from "@/app/_recoil/recoil";
 
 const Card = ({ children }: { children: Work }) => {
   const setWork = useSetRecoilState(selectedWorkAtom);
   const setIsSelected = useSetRecoilState(isWorkSelectedAtom);
-  const setIsInitDisplay = useSetRecoilState(isInitDisplayAtom);
 
   const selectWork = () => {
     setWork(children);
     setIsSelected(true);
-    setIsInitDisplay(false);
   };
 
   return (

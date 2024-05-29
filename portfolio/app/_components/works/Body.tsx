@@ -2,18 +2,35 @@
 import { WorkCarousel } from "./WorksCarousel";
 import { ImageCarousel } from "./ImagesCarousel";
 import { useRecoilValue, useRecoilState } from "recoil";
-import {
-  selectedWorkAtom,
-  isWorkSelectedAtom,
-  isInitDisplayAtom,
-} from "@/app/_recoil/recoil";
+import { selectedWorkAtom, isWorkSelectedAtom } from "@/app/_recoil/recoil";
 import clsx from "clsx";
+import { useState, useEffect } from "react";
 
 const Body = () => {
   const selectedWork = useRecoilValue(selectedWorkAtom);
   const [isWorkSelected, setIsWorkSelected] =
     useRecoilState(isWorkSelectedAtom);
-  const isInitDisplay = useRecoilValue(isInitDisplayAtom);
+  const [isInitDisplay, setIsInitDispplay] = useState(true);
+
+  /**
+   * Check if any work is assigned to "selectedWork". If a user has not selected a work yet, it means it is initial display.
+   * @returns {boolean} False if none of works is assigned to "selectedWork" variable yet.
+   *    Otherwise, true.
+   */
+  const isSelectedWorkEmpty = (): boolean => {
+    let isAssigned = Object.values(selectedWork).filter((val) => {
+      return val.length > 0;
+    }).length;
+    return !isAssigned;
+  };
+
+  useEffect(() => {
+    // without the if condition, init display check runs every time "selectedWork" variable changes.
+    // "selectedWork" variable chages when an user selects(clicks) a different work.
+    if (isInitDisplay) {
+      setIsInitDispplay(isSelectedWorkEmpty());
+    }
+  }, [selectedWork]);
 
   const onClick = () => {
     setIsWorkSelected(false);
@@ -32,12 +49,11 @@ const Body = () => {
           <div
             onClick={onClick}
             className={clsx("cursor-pointer text-small", {
-              "works_info-shown": isWorkSelected && !isInitDisplay,
-              visible: isWorkSelected,
-              invisible: isInitDisplay,
+              "works_info-shown": isWorkSelected,
+              "works_info-hidden": !isWorkSelected,
             })}
           >
-            Close
+            {!isInitDisplay && "Close"}
           </div>
         </div>
       </div>
@@ -70,12 +86,11 @@ const Body = () => {
           <div>
             <div
               className={clsx("w-fit", {
-                "works_info-shown": isWorkSelected && !isInitDisplay,
-                visible: isWorkSelected,
-                invisible: isInitDisplay,
+                "works_info-shown": isWorkSelected,
+                "works_info-hidden": !isWorkSelected,
               })}
             >
-              Skills
+              {!isInitDisplay && "Skills"}
             </div>
             <div className="flex gap-3 flex-wrap">
               {selectedWork.skills.map((skill, i) => (
