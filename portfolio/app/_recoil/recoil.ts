@@ -11,4 +11,12 @@ const isWorkSelectedAtom = atom({
   default: false,
 });
 
-export { selectedWorkAtom, isWorkSelectedAtom };
+/**
+ * flag to control visiblity of "close" and Skills element in Works Section
+ */
+const isInitDisplayAtom = atom({
+  key: "isInitDisplay",
+  default: true,
+});
+
+export { selectedWorkAtom, isWorkSelectedAtom, isInitDisplayAtom };

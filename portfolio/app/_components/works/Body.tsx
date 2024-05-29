@@ -1,17 +1,22 @@
 "use client";
 import { WorkCarousel } from "./WorksCarousel";
 import { ImageCarousel } from "./ImagesCarousel";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { selectedWorkAtom, isWorkSelectedAtom } from "@/app/_recoil/recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
+import {
+  selectedWorkAtom,
+  isWorkSelectedAtom,
+  isInitDisplayAtom,
+} from "@/app/_recoil/recoil";
 import clsx from "clsx";
 
 const Body = () => {
   const selectedWork = useRecoilValue(selectedWorkAtom);
-  const isWorkSelected = useRecoilValue(isWorkSelectedAtom);
-  const closeSelectedWork = useSetRecoilState(isWorkSelectedAtom);
+  const [isWorkSelected, setIsWorkSelected] =
+    useRecoilState(isWorkSelectedAtom);
+  const isInitDisplay = useRecoilValue(isInitDisplayAtom);
 
   const onClick = () => {
-    closeSelectedWork(false);
+    setIsWorkSelected(false);
   };
 
   return (
@@ -27,8 +32,9 @@ const Body = () => {
           <div
             onClick={onClick}
             className={clsx("cursor-pointer text-small", {
+              "works_info-shown": isWorkSelected && !isInitDisplay,
               visible: isWorkSelected,
-              invisible: !isWorkSelected,
+              invisible: isInitDisplay,
             })}
           >
             Close
@@ -64,8 +70,9 @@ const Body = () => {
           <div>
             <div
               className={clsx("w-fit", {
+                "works_info-shown": isWorkSelected && !isInitDisplay,
                 visible: isWorkSelected,
-                invisible: !isWorkSelected,
+                invisible: isInitDisplay,
               })}
             >
               Skills
