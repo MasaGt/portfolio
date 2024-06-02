@@ -41,17 +41,45 @@ const config: Config = {
       },
       keyframes: {
         apperFromLeft: {
-          "0%": { opacity: "0", transform: "translateX(-100%)" },
-          "100%": { opacity: "1", transform: "translateX(0)" },
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-100%)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
         },
         disappearToLeft: {
           "0%": { opacity: "1", transform: "translateX(0)" },
-          "100%": { opacity: "0", transform: "translateX(-100%)" },
+          "100%": {
+            opacity: "0",
+            transform: "translateX(-100%)",
+          },
+        },
+        appearFromRight: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(100%)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
+        disappearToRight: {
+          "0%": { opacity: "1", transform: "translateX(0)" },
+          "100%": {
+            opacity: "0",
+            transform: "translateX(100%)",
+          },
         },
       },
       animation: {
-        appear: "apperFromLeft 0.5s forwards",
-        disappear: "disappearToLeft 1s forwards",
+        appearFromLeft: "apperFromLeft 0.5s forwards",
+        disappearToLeft: "disappearToLeft 1s forwards",
+        appearFromRight: "appearFromRight 0.5s forwards",
+        disappearToRight: "disappearToRight 1s forwards",
       },
     },
   },

@@ -10,7 +10,7 @@ const Body = () => {
   const selectedWork = useRecoilValue(selectedWorkAtom);
   const [isWorkSelected, setIsWorkSelected] =
     useRecoilState(isWorkSelectedAtom);
-  const [isInitDisplay, setIsInitDispplay] = useState(true);
+  const [isInitDisplay, setIsInitDisplay] = useState(true);
 
   /**
    * Check if any work is assigned to "selectedWork". If a user has not selected a work yet, it means it is initial display.
@@ -28,7 +28,7 @@ const Body = () => {
     // without the if condition, init display check runs every time "selectedWork" variable changes.
     // "selectedWork" variable chages when an user selects(clicks) a different work.
     if (isInitDisplay) {
-      setIsInitDispplay(isSelectedWorkEmpty());
+      setIsInitDisplay(isSelectedWorkEmpty());
     }
   }, [selectedWork]);
 
@@ -38,59 +38,51 @@ const Body = () => {
 
   return (
     <div className="works">
-      <div className="works_info basis-1/5 md:pt-20 pt-16 px-6 flex items-end">
+      <div className="works_info md:pt-20 pt-16 px-6 flex items-end">
         <div
           className={clsx("flex justify-between items-center w-full", {
-            "works_info-shown": isWorkSelected,
-            "works_info-hidden": !isWorkSelected,
+            "works_info-shown-l": isWorkSelected,
+            "works_info-hidden-l": !isWorkSelected,
           })}
         >
           <div className="text-heading">{selectedWork.title}</div>
           <div
             onClick={onClick}
             className={clsx("cursor-pointer text-small", {
-              "works_info-shown": isWorkSelected,
-              "works_info-hidden": !isWorkSelected,
+              "works_info-shown-l": isWorkSelected,
+              "works_info-hidden-l": !isWorkSelected,
             })}
           >
             {!isInitDisplay && "Close"}
           </div>
         </div>
       </div>
-      <div className="works_main">
-        <div
-          className={clsx("h-full", {
-            visible: !isWorkSelected,
-            hidden: isWorkSelected,
-          })}
-        >
+      <div className="works_main overflow-hidden relative  p-4">
+        <div className="absolute h-[calc(100%-2rem)]">
           <WorkCarousel />
         </div>
-        <div
-          className={clsx("h-full", {
-            visible: isWorkSelected,
-            hidden: !isWorkSelected,
-          })}
-        >
+        <div className="absolute h-[calc(100%-2rem)]">
           <ImageCarousel />
         </div>
       </div>
       <div className="works_desc works_info px-6 pt-10 pb-4">
         <div
           className={clsx("flex gap-y-10 flex-col text-normal", {
-            "works_info-shown": isWorkSelected,
-            "works_info-hidden": !isWorkSelected,
+            "works_info-shown-l": isWorkSelected,
+            "works_info-hidden-l": !isWorkSelected,
           })}
         >
           <div>{selectedWork.description}</div>
           <div>
             <div
-              className={clsx("w-fit", {
-                "works_info-shown": isWorkSelected,
-                "works_info-hidden": !isWorkSelected,
+              className={clsx({
+                "works_info-shown-l w-fit": isWorkSelected,
+                "works_info-hidden-l": !isWorkSelected,
               })}
             >
-              {!isInitDisplay && "Skills"}
+              {((isInitDisplay && !isWorkSelected) ||
+                (!isInitDisplay && !isWorkSelected)) &&
+                "Skills"}
             </div>
             <div className="flex gap-3 flex-wrap">
               {selectedWork.skills.map((skill, i) => (
