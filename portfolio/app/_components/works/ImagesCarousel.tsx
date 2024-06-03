@@ -16,7 +16,7 @@ export const ImageCarousel = () => {
       slidesPerView={"auto"}
       navigation={true}
       mousewheel={true}
-      className="h-full"
+      className="h-full w-full absolute -left-[120%] -top-full"
     >
       {selectedWork.imgs.map((img, i) => (
         <SwiperSlide className="[&.swiper-slide]:w-fit h-full" key={i}>

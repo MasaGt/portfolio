@@ -22,8 +22,8 @@ const Card = ({ children }: { children: Work }) => {
         src={`/${children.thumbnail}`}
         alt={`${children.title}'s image`}
         fill
-        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-        // sizes="100vw"
+        // sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+        sizes="100vw"
         className="object-cover aspect-square"
       />
     </div>

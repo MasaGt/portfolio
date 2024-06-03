@@ -58,12 +58,8 @@ const Body = () => {
         </div>
       </div>
       <div className="works_main overflow-hidden relative  p-4">
-        <div className="absolute h-[calc(100%-2rem)]">
-          <WorkCarousel />
-        </div>
-        <div className="absolute h-[calc(100%-2rem)]">
-          <ImageCarousel />
-        </div>
+        <WorkCarousel />
+        <ImageCarousel />
       </div>
       <div className="works_desc works_info px-6 pt-10 pb-4">
         <div

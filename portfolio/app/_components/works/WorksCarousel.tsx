@@ -12,7 +12,7 @@ export const WorkCarousel = () => {
   return (
     <Swiper
       watchOverflow={true}
-      className="h-full"
+      className="h-full w-full absolute"
       modules={[Mousewheel, Navigation]}
       spaceBetween={30}
       slidesPerView={"auto"}
