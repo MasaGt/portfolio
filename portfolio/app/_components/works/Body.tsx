@@ -1,15 +1,16 @@
 "use client";
 import { WorkCarousel } from "./WorksCarousel";
 import { ImageCarousel } from "./ImagesCarousel";
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilValue, useResetRecoilState, useRecoilState } from "recoil";
 import { selectedWorkAtom, isWorkSelectedAtom } from "@/app/_recoil/recoil";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
 
 const Body = () => {
-  const selectedWork = useRecoilValue(selectedWorkAtom);
   const [isWorkSelected, setIsWorkSelected] =
     useRecoilState(isWorkSelectedAtom);
+  const selectedWork = useRecoilValue(selectedWorkAtom);
+  const clearSelectedWork = useResetRecoilState(selectedWorkAtom);
   const [isInitDisplay, setIsInitDisplay] = useState(true);
 
   /**
@@ -34,6 +35,7 @@ const Body = () => {
 
   const onClick = () => {
     setIsWorkSelected(false);
+    clearSelectedWork();
   };
 
   return (
