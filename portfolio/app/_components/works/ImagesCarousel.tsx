@@ -16,17 +16,18 @@ export const ImageCarousel = () => {
       slidesPerView={"auto"}
       navigation={true}
       mousewheel={true}
-      className="h-full w-full absolute -left-[120%] -top-full"
+      className="h-full w-full"
     >
       {selectedWork.imgs.map((img, i) => (
         <SwiperSlide className="[&.swiper-slide]:w-fit h-full" key={i}>
           <div className="lg:cursor-pointer relative h-full aspect-square">
             <Image
-              className="object-cover !relative aspect-square"
+              className="object-cover aspect-square"
               src={`/${img}`}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               alt={`${selectedWork.title}'s images`}
+              priority={true}
             />
           </div>
         </SwiperSlide>

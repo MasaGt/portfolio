@@ -78,20 +78,24 @@
     @apply relative backdrop-blur text-white;
   }
 
-  .works_info-hidden-l {
-    @apply animate-disappearToLeft;
+  .image-carousel {
+    @apply -translate-y-full transition-transform;
   }
 
-  .works_info-hidden-r {
-    @apply animate-disappearToRight;
+  .works_appear {
+    @apply ease-in-out duration-500 delay-500 translate-y-0;
   }
 
-  .works_info-shown-l {
-    @apply animate-appearFromLeft;
+  .works_disappear {
+    @apply ease-in-out duration-500 translate-y-full;
   }
 
-  .works_info-shown-r {
-    @apply animate-appearFromRight;
+  .images_appear {
+    @apply ease-in-out translate-y-0 duration-500 delay-500;
+  }
+
+  .images_disappear {
+    @apply ease-in-out -translate-y-full duration-500;
   }
 
   /* .works_main {

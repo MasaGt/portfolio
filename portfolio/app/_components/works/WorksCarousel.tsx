@@ -8,13 +8,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 export const WorkCarousel = () => {
+  // read work info from a file
   const works: Work[] = works_data;
   return (
     <Swiper
       watchOverflow={true}
-      className="h-full w-full absolute"
+      className="h-full w-full relative"
       modules={[Mousewheel, Navigation]}
-      spaceBetween={30}
       slidesPerView={"auto"}
       navigation={true}
       mousewheel={true}

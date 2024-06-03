@@ -35,64 +35,88 @@ const Body = () => {
 
   const onClick = () => {
     setIsWorkSelected(false);
-    clearSelectedWork();
+  };
+
+  const onTransitionEnd = () => {
+    if (!isWorkSelected) {
+      clearSelectedWork();
+    }
   };
 
   return (
     <div className="works">
-      <div className="works_info md:pt-20 pt-16 px-6 flex items-end">
-        <div
-          className={clsx("flex justify-between items-center w-full", {
-            "works_info-shown-l": isWorkSelected,
-            "works_info-hidden-l": !isWorkSelected,
-          })}
-        >
-          <div className="text-heading">{selectedWork.title}</div>
+      <div className="works_info md:pt-20 pt-16 px-6">
+        <div className="overflow-hidden  flex items-end">
           <div
-            onClick={onClick}
-            className={clsx("cursor-pointer text-small", {
-              "works_info-shown-l": isWorkSelected,
-              "works_info-hidden-l": !isWorkSelected,
+            className={clsx("flex justify-between items-center w-full", {
+              images_appear: isWorkSelected,
+              images_disappear: !isWorkSelected,
             })}
           >
-            {!isInitDisplay && "Close"}
+            <div className="text-heading">{selectedWork.title}</div>
+            <div
+              onClick={onClick}
+              className={clsx("cursor-pointer text-small", {
+                images_appear: isWorkSelected,
+                images_disappear: !isWorkSelected,
+              })}
+            >
+              {!isInitDisplay && "Close"}
+            </div>
           </div>
         </div>
       </div>
-      <div className="works_main overflow-hidden relative  p-4">
-        <WorkCarousel />
-        <ImageCarousel />
-      </div>
-      <div className="works_desc works_info px-6 pt-10 pb-4">
+      <div className="works_main overflow-hidden relative">
         <div
-          className={clsx("flex gap-y-10 flex-col text-normal", {
-            "works_info-shown-l": isWorkSelected,
-            "works_info-hidden-l": !isWorkSelected,
+          className={clsx("w-full h-full absolute", {
+            works_appear: !isWorkSelected && !isInitDisplay,
+            works_disappear: isWorkSelected && !isInitDisplay,
           })}
         >
-          <div>{selectedWork.description}</div>
-          <div>
-            <div
-              className={clsx({
-                "works_info-shown-l w-fit": isWorkSelected,
-                "works_info-hidden-l": !isWorkSelected,
-              })}
-            >
-              {((isInitDisplay && !isWorkSelected) ||
-                (!isInitDisplay && !isWorkSelected)) &&
-                "Skills"}
-            </div>
-            <div className="flex gap-3 flex-wrap">
-              {selectedWork.skills.map((skill, i) => (
-                <div key={i} className="text-center border p-1 text-small">
-                  <span
-                    key={i}
-                    className="inline-block relative top-1/2  translate-y-[-50%]"
-                  >
-                    {skill}
-                  </span>
-                </div>
-              ))}
+          <WorkCarousel />
+        </div>
+        <div
+          className={clsx("w-full h-full absolute image-carousel", {
+            images_appear: isWorkSelected && !isInitDisplay,
+            images_disappear: !isWorkSelected && !isInitDisplay,
+          })}
+          onTransitionEnd={onTransitionEnd}
+        >
+          <ImageCarousel />
+        </div>
+      </div>
+      <div className="works_desc works_info px-6 pt-10 pb-4">
+        <div className="overflow-hidden">
+          <div
+            className={clsx("flex gap-y-10 flex-col text-normal", {
+              images_appear: isWorkSelected,
+              images_disappear: !isWorkSelected,
+            })}
+          >
+            <div>{selectedWork.description}</div>
+            <div>
+              <div
+                className={clsx({
+                  images_appear: isWorkSelected,
+                  images_disappear: !isWorkSelected,
+                })}
+              >
+                {((isInitDisplay && !isWorkSelected) ||
+                  (!isInitDisplay && !isWorkSelected)) &&
+                  "Skills"}
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                {selectedWork.skills.map((skill, i) => (
+                  <div key={i} className="text-center border p-1 text-small">
+                    <span
+                      key={i}
+                      className="inline-block relative top-1/2  translate-y-[-50%]"
+                    >
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
