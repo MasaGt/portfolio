@@ -101,9 +101,7 @@ const Body = () => {
                   images_disappear: !isWorkSelected,
                 })}
               >
-                {((isInitDisplay && !isWorkSelected) ||
-                  (!isInitDisplay && !isWorkSelected)) &&
-                  "Skills"}
+                {!isInitDisplay && "Skills"}
               </div>
               <div className="flex gap-3 flex-wrap">
                 {selectedWork.skills.map((skill, i) => (

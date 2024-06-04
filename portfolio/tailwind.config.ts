@@ -38,6 +38,9 @@ const config: Config = {
       padding: {
         "30": "7.5rem",
       },
+      aspectRatio: {
+        moblie: "6 / 13",
+      },
     },
   },
   plugins: [],

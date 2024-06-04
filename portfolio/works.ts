@@ -11,6 +11,7 @@ export const works_data: Work[] = [
     description: "My new portofolio. Using Next.js as a framework",
     skills: ["Type Script", "Next.js", "Swiper", "Recoil", "clsx"],
     imgs: ["blog_img.png", "blog_img.png", "blog_img.png", "blog_img.png"],
+    type: "web",
   },
   {
     thumbnail: "blog_img.png",
@@ -19,6 +20,7 @@ export const works_data: Work[] = [
       "An android app that monitors weather data and forecasts temperature in 1 hour using AI model.",
     skills: ["Java Script", "React", "React Native", "Team Leading"],
     imgs: ["blog_img.png", "blog_img.png", "blog_img.png"],
+    type: "mobible",
   },
   {
     thumbnail: "flutter_game_app_thumbnail.png",
@@ -33,6 +35,7 @@ export const works_data: Work[] = [
       "flutter_game_app_4.png",
       "flutter_game_app_5.png",
     ],
+    type: "mobible",
   },
   {
     thumbnail: "portofoilo_v1_thumbnail.png",
@@ -40,5 +43,6 @@ export const works_data: Work[] = [
     description: "My first portfolio using HTML5, css3, and JavaScript.",
     skills: ["HTML5", "CSS3", "Java Script"],
     imgs: ["portofoilo_v1_1.png", "portofoilo_v1_2.png", "portofoilo_v1_3.png"],
+    type: "web",
   },
 ];

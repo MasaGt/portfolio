@@ -4,4 +4,7 @@ export type Work = {
   skills: string[];
   thumbnail: string;
   imgs: string[];
+  type: WorkType;
 };
+
+export type WorkType = "web" | "mobible" | "";
