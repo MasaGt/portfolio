@@ -16,6 +16,7 @@ export default function Home() {
           autoPlay
           loop
           muted
+          playsInline
         ></video>
       </div>
       {/* <section>

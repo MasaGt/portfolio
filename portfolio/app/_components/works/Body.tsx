@@ -1,17 +1,23 @@
 "use client";
-import { WorkCarousel } from "./WorksCarousel";
+import { WorkTitlePanel } from "./WorkTitlePanel";
+import { WorkDescriptionPanel } from "./WorkDescriptionPanel";
+import { WorkMainPanel } from "./WorkMainPanel";
+// import { WorkCarousel } from "./WorksCarousel";
 import { ImageCarousel } from "./ImagesCarousel";
-import { useRecoilValue, useResetRecoilState, useRecoilState } from "recoil";
-import { selectedWorkAtom, isWorkSelectedAtom } from "@/app/_recoil/recoil";
+// import { useRecoilValue, useResetRecoilState, useRecoilState } from "recoil";
+// import { selectedWorkAtom, isWorkSelectedAtom } from "@/app/_recoil/recoil";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
+import { useWorkState } from "@/app/_hooks/useWorkState";
 
 const Body = () => {
-  const [isWorkSelected, setIsWorkSelected] =
-    useRecoilState(isWorkSelectedAtom);
-  const selectedWork = useRecoilValue(selectedWorkAtom);
-  const clearSelectedWork = useResetRecoilState(selectedWorkAtom);
+  // const [isWorkSelected, setIsWorkSelected] =
+  //   useRecoilState(isWorkSelectedAtom);
+  // const selectedWork = useRecoilValue(selectedWorkAtom);
+  // const clearSelectedWork = useResetRecoilState(selectedWorkAtom);
   const [isInitDisplay, setIsInitDisplay] = useState(true);
+  const { selectedWork, isWorkSelected, setIsWorkSelected, clearSelectedWork } =
+    useWorkState();
 
   /**
    * Check if any work is assigned to "selectedWork". If a user has not selected a work yet, it means it is initial display.
@@ -19,6 +25,7 @@ const Body = () => {
    *    Otherwise, true.
    */
   const isSelectedWorkEmpty = (): boolean => {
+    // return isWorkSelected;
     let isAssigned = Object.values(selectedWork).filter((val) => {
       return val.length > 0;
     }).length;
@@ -33,19 +40,20 @@ const Body = () => {
     }
   }, [selectedWork]);
 
-  const onClick = () => {
-    setIsWorkSelected(false);
-  };
+  // const onClick = () => {
+  //   setIsWorkSelected(false);
+  // };
 
-  const onTransitionEnd = () => {
-    if (!isWorkSelected) {
-      clearSelectedWork();
-    }
-  };
+  // const onTransitionEnd = () => {
+  //   if (!isWorkSelected) {
+  //     clearSelectedWork();
+  //   }
+  // };
 
   return (
-    <div className="works">
-      <div className="works_info md:pt-20 pt-16 px-6">
+    <div className="flex flex-col h-screen">
+      <WorkTitlePanel isInitDisplay={isInitDisplay} />
+      {/* <div className="works_info md:pt-20 pt-16 px-6">
         <div className="overflow-hidden  flex items-end">
           <div
             className={clsx("flex justify-between items-center w-full", {
@@ -55,7 +63,7 @@ const Body = () => {
           >
             <div className="text-heading">{selectedWork.title}</div>
             <div
-              onClick={onClick}
+              onClick={() => setIsWorkSelected(false)}
               className={clsx("cursor-pointer text-small", {
                 images_appear: isWorkSelected,
                 images_disappear: !isWorkSelected,
@@ -65,8 +73,9 @@ const Body = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="works_main overflow-hidden relative">
+      </div> */}
+      <WorkMainPanel isInitDisplay={isInitDisplay} />
+      {/* <div className="works_main overflow-hidden relative">
         <div
           className={clsx("w-full h-full absolute", {
             works_appear: !isWorkSelected && !isInitDisplay,
@@ -84,8 +93,9 @@ const Body = () => {
         >
           <ImageCarousel />
         </div>
-      </div>
-      <div className="works_desc works_info px-6 pt-10 pb-4">
+      </div> */}
+      <WorkDescriptionPanel isInitDisplay={isInitDisplay} />
+      {/* <div className="works_desc works_info px-6 pt-10 pb-4">
         <div className="overflow-hidden">
           <div
             className={clsx("flex gap-y-10 flex-col text-normal", {
@@ -118,7 +128,7 @@ const Body = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

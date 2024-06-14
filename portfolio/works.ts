@@ -20,7 +20,7 @@ export const works_data: Work[] = [
       "An android app that monitors weather data and forecasts temperature in 1 hour using AI model.",
     skills: ["Java Script", "React", "React Native", "Team Leading"],
     imgs: ["blog_img.png", "blog_img.png", "blog_img.png"],
-    type: "mobible",
+    type: "mobile",
   },
   {
     thumbnail: "flutter_game_app_thumbnail.png",
@@ -35,7 +35,7 @@ export const works_data: Work[] = [
       "flutter_game_app_4.png",
       "flutter_game_app_5.png",
     ],
-    type: "mobible",
+    type: "mobile",
   },
   {
     thumbnail: "portofoilo_v1_thumbnail.png",

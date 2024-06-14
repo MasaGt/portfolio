@@ -23,13 +23,13 @@ export const ImageCarousel = () => {
           <div
             className={clsx("lg:cursor-pointer relative h-full", {
               "aspect-square": selectedWork.type === "web",
-              "aspect-moblie": selectedWork.type === "mobible",
+              "aspect-moblie": selectedWork.type === "mobile",
             })}
           >
             <Image
               className={clsx({
                 "aspect-square": selectedWork.type === "web",
-                "aspect-moblie": selectedWork.type === "mobible",
+                "aspect-moblie": selectedWork.type === "mobile",
               })}
               src={`/${img}`}
               fill

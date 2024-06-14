@@ -7,4 +7,4 @@ export type Work = {
   type: WorkType;
 };
 
-export type WorkType = "web" | "mobible" | "";
+export type WorkType = "web" | "mobile" | "";
